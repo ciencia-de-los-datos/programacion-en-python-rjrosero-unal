@@ -26,10 +26,10 @@ def pregunta_01():
     total = 0
 
     with open('data.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = csv.reader(csv_file, delimiter='\t')
 
         for registro in csv_reader:
-            total += int(registro[1])
+            total += registro[1]
 
     return total
 

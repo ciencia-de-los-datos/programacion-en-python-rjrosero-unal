@@ -21,7 +21,17 @@ def pregunta_01():
     214
 
     """
-    return
+    import csv
+
+    total = 0
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for registro in csv_reader:
+            total += registro[1]
+
+    return total
 
 
 def pregunta_02():

@@ -29,7 +29,7 @@ def pregunta_01():
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for registro in csv_reader:
-            total += registro[1]
+            total += int(registro[1])
 
     return total
 

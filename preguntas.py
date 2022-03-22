@@ -49,6 +49,22 @@ def pregunta_02():
     ]
 
     """
+
+    import csv
+
+    tupla = dict()
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+
+        for registro in csv_reader:
+            if registro[0] in tupla.keys:
+                tupla[registro[0]] +=  tupla[registro[0]] 
+            else:
+                tupla = (registro[0], 1)
+
+    listaTuplas = list(tupla.items)
+
     return
 
 

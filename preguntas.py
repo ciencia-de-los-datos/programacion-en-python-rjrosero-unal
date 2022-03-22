@@ -63,7 +63,7 @@ def pregunta_02():
             else:
                 tupla = {registro[0] : 1}
 
-    listaTuplas = list(tupla.items)
+    listaTuplas = list(tupla.items())
 
     return listaTuplas
 

@@ -65,7 +65,7 @@ def pregunta_02():
 
     listaTuplas = list(tupla.items)
 
-    return
+    return listaTuplas
 
 
 def pregunta_03():

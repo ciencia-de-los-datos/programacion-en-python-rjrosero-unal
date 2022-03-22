@@ -31,7 +31,7 @@ def pregunta_01():
         for registro in csv_reader:
             total += int(registro[1])
 
-    return total
+    return total 
 
 
 def pregunta_02():

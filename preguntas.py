@@ -61,7 +61,7 @@ def pregunta_02():
             if registro[0] in tupla:
                 tupla[registro[0]] +=  tupla[registro[0]]
             else:
-                tupla = {registro[0], 1}
+                tupla = {registro[0] : 1}
 
     listaTuplas = list(tupla.items)
 

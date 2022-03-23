@@ -94,9 +94,9 @@ def pregunta_03():
 
         for registro in csv_reader:
             if registro[0] in tupla:
-                tupla[registro[0]] += int(tupla[registro[1]])
+                tupla[registro[0]] += int(registro[1])
             else:
-                tupla[registro[0]] = int(tupla[registro[1]])
+                tupla[registro[0]] = int(registro[1])
 
     listaTuplas = list(tupla.items())
     listaTuplas.sort(key = lambda x: x[0])

@@ -94,7 +94,7 @@ def pregunta_03():
 
         for registro in csv_reader:
             if registro[0] in tupla:
-                tupla[registro[1]] += int(tupla[registro[1]])
+                tupla[registro[0]] += int(tupla[registro[1]])
             else:
                 tupla[registro[0]] = int(tupla[registro[1]])
 

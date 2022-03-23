@@ -59,11 +59,12 @@ def pregunta_02():
 
         for registro in csv_reader:
             if registro[0] in tupla:
-                tupla[registro[0]] +=  tupla[registro[0]]
+                tupla[registro[0]] += 1
             else:
-                tupla = {registro[0] : 1}
+                tupla[registro[0]] = 1
 
     listaTuplas = list(tupla.items())
+    listaTuplas.sort(key = lambda x: x[0])
 
     return listaTuplas
 

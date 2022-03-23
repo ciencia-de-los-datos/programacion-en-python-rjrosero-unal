@@ -84,7 +84,24 @@ def pregunta_03():
     ]
 
     """
-    return
+
+    import csv
+
+    tupla = dict()
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+
+        for registro in csv_reader:
+            if registro[0] in tupla:
+                tupla[registro[1]] += int(tupla[registro[1]])
+            else:
+                tupla[registro[0]] = int(tupla[registro[1]])
+
+    listaTuplas = list(tupla.items())
+    listaTuplas.sort(key = lambda x: x[0])
+
+    return listaTuplas
 
 
 def pregunta_04():

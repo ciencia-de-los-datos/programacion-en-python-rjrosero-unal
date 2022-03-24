@@ -134,7 +134,7 @@ def pregunta_04():
         csv_reader = csv.reader(csv_file, delimiter='\t')
 
         for registro in csv_reader:
-            mes = int(registro[2].split("-")[1])
+            mes = registro[2].split("-")[1]
                 
             if mes in tupla:
                 tupla[mes] += 1

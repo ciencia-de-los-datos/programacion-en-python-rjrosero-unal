@@ -133,13 +133,13 @@ def pregunta_04():
     with open('data.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='\t')
 
-    for registro in csv_reader:
-        mes = int(registro[2].split("-")[1])
-            
-        if mes in tupla:
-            tupla[mes] += 1
-        else:
-            tupla[mes] = 1
+        for registro in csv_reader:
+            mes = int(registro[2].split("-")[1])
+                
+            if mes in tupla:
+                tupla[mes] += 1
+            else:
+                tupla[mes] = 1
 
     listaTuplas = list(tupla.items())
     listaTuplas.sort(key = lambda x: x[0])

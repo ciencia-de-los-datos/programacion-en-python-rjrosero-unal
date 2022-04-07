@@ -199,7 +199,7 @@ def pregunta_05():
                         numeroMenorInicial = y
                         tuplaFinal.append((letraActual,int(numeroMayor),int(numeroMenor)))
 
-        tuplaFinal.append(letraActual,int(numeroMayor),int(numeroMenor))
+        tuplaFinal.append((letraActual,int(numeroMayor),int(numeroMenor)))
             
     return tuplaFinal
 

@@ -194,10 +194,10 @@ def pregunta_05():
                         numeroMenor = numeroMenorInicial
                         numeroMayor = y
                         letraActual=x
-                    else:      
-                        letraMenorInicial = x
-                        numeroMenorInicial = y
-                        tuplaFinal.append((letraActual,int(numeroMayor),int(numeroMenor)))
+            else:      
+                letraMenorInicial = x
+                numeroMenorInicial = y
+                tuplaFinal.append((letraActual,int(numeroMayor),int(numeroMenor)))
 
         tuplaFinal.append((letraActual,int(numeroMayor),int(numeroMenor)))
             

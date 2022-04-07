@@ -162,7 +162,46 @@ def pregunta_05():
     ]
 
     """
-    return
+
+    import csv
+
+    tupla = []
+    tuplaFinal=[]
+    numeroMenor=0
+    numeroMayor=0
+    letraActual = ''
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+        listaDatos.sort(key = lambda x: (x[0], x[1]))
+        
+        for registro in listaDatos:
+            tupla.append((registro[0],registro[1]))
+        
+        letraMenorInicial = tupla[0][0]
+        numeroMenorInicial = tupla[0][1]
+
+        for x,y in tupla:
+            if letraMenorInicial == x:
+                if numeroMenorInicial > y:
+                    numeroMenor = y
+                    numeroMayor = numeroMenorInicial
+                    letraActual=x
+                else:
+                    if numeroMenorInicial < y:
+                        numeroMenor = numeroMenorInicial
+                        numeroMayor = y
+                        letraActual=x
+                    else:      
+                        letraMenorInicial = x
+                        numeroMenorInicial = y
+                        tuplaFinal.append((letraActual,numeroMayor,numeroMenor))
+
+        tuplaFinal.append((letraActual,numeroMayor,numeroMenor))
+            
+    return tuplaFinal
 
 
 def pregunta_06():

@@ -226,7 +226,50 @@ def pregunta_06():
     ]
 
     """
-    return
+    import csv
+
+    tupla = ()
+    listaDiccionarios = []
+    tuplaFinal=[]
+    numeroMenor=0
+    numeroMayor=0
+    letraActual = ''
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+            
+        for registro in listaDatos:
+            tupla = tupla + (tuple((registro[4].split(','))))
+
+        for registro in tupla:
+            listaDiccionarios.append(tuple((registro.split(':'))))
+        
+        listaDiccionarios.sort(key = lambda x: (x[0], int(x[1])))
+        
+        letraMenorInicial = listaDiccionarios[0][0]
+        numeroMenorInicial = listaDiccionarios[0][1]
+
+        for x,y in listaDiccionarios:
+            if letraMenorInicial == x:
+                if int(numeroMenorInicial) > int(y):
+                    numeroMenor = y
+                    numeroMayor = numeroMenorInicial
+                    letraActual=x
+                else:
+                    if int(numeroMenorInicial) < int(y):
+                        numeroMenor = numeroMenorInicial
+                        numeroMayor = y
+                        letraActual=x
+            else:      
+                letraMenorInicial = x
+                numeroMenorInicial = y
+                tuplaFinal.append((letraActual,int(numeroMenor),int(numeroMayor)))
+
+        tuplaFinal.append((letraActual,int(numeroMenor),int(numeroMayor)))
+    
+    return tuplaFinal
 
 
 def pregunta_07():

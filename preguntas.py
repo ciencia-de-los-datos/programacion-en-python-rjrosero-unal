@@ -405,7 +405,40 @@ def pregunta_09():
     }
 
     """
-    return
+
+    import csv
+
+    tupla = ()
+    listaDiccionarios = []
+    diccionarioFinal = {}
+    claveInicial = ''
+    totalVeces = 0
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+            
+        for registro in listaDatos:
+            tupla = tupla + (tuple((registro[4].split(','))))
+
+        for registro in tupla:
+            listaDiccionarios.append(tuple((registro.split(':'))))
+        
+        listaDiccionarios.sort(key = lambda x: (x[0], int(x[1])))
+        
+        claveInicial = listaDiccionarios[0][0]
+        for registro in listaDiccionarios:
+            if claveInicial == registro[0]:
+                totalVeces +=1
+            else:
+                diccionarioFinal[claveInicial] = totalVeces
+                claveInicial = registro[0]
+                totalVeces=1
+            
+        diccionarioFinal[claveInicial] = totalVeces
+
+    return diccionarioFinal
 
 
 def pregunta_10():

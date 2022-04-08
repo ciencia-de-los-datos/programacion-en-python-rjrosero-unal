@@ -348,7 +348,41 @@ def pregunta_08():
     ]
 
     """
-    return
+
+    import csv
+
+    listaNumeroUnicos = []
+    listaParejaLetraNumero = []
+    listaLetras = []
+    tuplaFinal=[]
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+        
+        for registro in listaDatos:
+            listaNumeroUnicos.append(((registro[1])))
+
+        listaNumeroUnicos = list(dict.fromkeys(listaNumeroUnicos))
+        listaNumeroUnicos.sort(key = lambda x: x[0])
+
+        for registro in listaDatos:
+            listaParejaLetraNumero.append(((registro[0],registro[1])))
+        
+        listaParejaLetraNumero.sort(key = lambda x: x[0])
+        listaParejaLetraNumero = list(dict.fromkeys(listaParejaLetraNumero))
+
+        for numero in listaNumeroUnicos:
+            for pareja in listaParejaLetraNumero:
+                if numero == pareja[1]:
+                    listaLetras.append(pareja[0])
+            
+            listaLetrasFinal = listaLetras.copy()
+            tuplaFinal.append((int(numero), listaLetrasFinal))
+            listaLetras.clear()
+
+    return tuplaFinal    
 
 
 def pregunta_09():

@@ -498,7 +498,32 @@ def pregunta_11():
 
 
     """
-    return
+    
+    import csv
+
+    listaElementos = []
+    listaElementosFinales = []
+    diccionario = {}
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+            
+        for registro in listaDatos:
+            listaElementos.append(tuple((int(registro[1]),registro[3])))
+
+        for registro in listaElementos:
+            listaElementosFinales.append(tuple((registro[0],registro[1].split(','))))
+
+        for registro in listaElementosFinales:
+            for letra in registro[1]:
+                if letra in diccionario:
+                    diccionario[letra] += registro[0]
+                else:
+                    diccionario[letra] = registro[0]
+    
+    return diccionario
 
 
 def pregunta_12():

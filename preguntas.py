@@ -459,7 +459,25 @@ def pregunta_10():
 
 
     """
-    return
+    import csv
+
+    listaElementos = []
+    listaElementosFinales = []
+
+    with open('data.csv') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter='\t')
+        
+        listaDatos = list(csv_reader)
+            
+        for registro in listaDatos:
+            listaElementos.append(tuple((registro[0],registro[3],registro[4])))
+
+        for registro in listaElementos:
+            totalSegundosElmentos = len(registro[1].split(','))
+            totalTercerosElementos = len(registro[2].split(','))
+            listaElementosFinales.append(tuple((registro[0],totalSegundosElmentos,totalTercerosElementos)))
+    
+    return listaElementosFinales
 
 
 def pregunta_11():
